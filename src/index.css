@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Cousine:wght@400;700&display=swap");
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: #27362b;
+  font-family: 'Cousine';
+  font-style: normal;
+  font-weight: 400;
+}
+
+.btn-primary {
+  background-color: #c2e189;
+  border-color: #c2e189;
+  color: #121212;
+  padding: 0.65rem 1rem;
+  font-weight: bold;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #9353bc !important;
+  border-color: #9353bc !important;
+  color: #ffffff;
+}
