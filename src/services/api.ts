@@ -17,4 +17,25 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (!error.response) {
+      return Promise.reject(
+        new Error("Não foi possível conectar ao servidor.")
+      );
+    }
+
+    const message = error.response.data?.message;
+
+    return Promise.reject(
+      new Error(
+        typeof message === "string"
+          ? message
+          : "Ocorreu um erro ao processar essa requisição."
+      )
+    );
+  }
+);
+
 export default api;
