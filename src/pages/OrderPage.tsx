@@ -19,17 +19,13 @@ export function OrderPage() {
     () => new Order()
   );
 
-  const [symbols, setSymbols] =
-    useState<Symbol[]>([]);
+  const [symbols, setSymbols] = useState<Symbol[]>([]);
 
-  const [symbolsLoading, setSymbolsLoading] =
-    useState<boolean>(true);
+  const [symbolsLoading, setSymbolsLoading] = useState<boolean>(true);
 
-  const [loading, setLoading] =
-    useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const [alert, setAlert] =
-    useState<PageAlert | null>(null);
+  const [alert, setAlert] = useState<PageAlert | null>(null);
 
   useEffect(() => {
     const loadSymbols = async (): Promise<void> => {
@@ -37,8 +33,7 @@ export function OrderPage() {
         setSymbolsLoading(true);
         setAlert(null);
 
-        const result: Symbol[] =
-          await getSymbols();
+        const result: Symbol[] = await getSymbols();
 
         setSymbols(result);
 
@@ -77,8 +72,7 @@ export function OrderPage() {
   const handleSubmit = async (): Promise<void> => {
     setAlert(null);
 
-    const validationError: string | null =
-      order.validate();
+    const validationError: string | null = order.validate();
 
     if (validationError) {
       setAlert({
@@ -92,11 +86,9 @@ export function OrderPage() {
     try {
       setLoading(true);
 
-      const response: unknown =
-        await createOrder(order);
+      const response: unknown = await createOrder(order);
 
-      let message =
-        "Ordem criada com sucesso!";
+      let message = "Ordem criada com sucesso!";
 
       if (typeof response === "string") {
         message = response;
@@ -118,8 +110,7 @@ export function OrderPage() {
         const responseData: unknown =
           error.response?.data;
 
-        let message =
-          "Error ao criar ordem.";
+        let message = "Error ao criar ordem.";
 
         if (
           typeof responseData === "string"
@@ -163,7 +154,7 @@ export function OrderPage() {
           <section className="card shadow-sm">
             <div className="card-body p-4">
               <h1 className="h2 text-center mb-4">
-                Teste Flowa - Criar Ordem
+                Teste Flowa | Criar Ordem
               </h1>
 
               {alert && (

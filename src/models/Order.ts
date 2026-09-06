@@ -33,7 +33,7 @@ export class Order {
       return "Simbolo é obrigatório.";
     }
 
-    if (!Number.isFinite(this.amount) || this.amount <= 0 || this.amount > 100000) {
+    if (!Number.isFinite(this.amount) || this.amount <= 0 || this.amount >= 100000) {
       return "Quantidade deve ser maior que 0 e menor que 100.000.";
     }
 
@@ -41,7 +41,7 @@ export class Order {
       !Number.isFinite(this.price) || this.price <= 0 || this.price >= 1000 ||
       Math.round(this.price * 100) !== this.price * 100
     ) {
-      return "Preço deve ser maior que 0, menor que 999,99 e somente duas casas decimais.";
+      return "Preço deve ser maior que 0 e menor que 1.000,00.";
     }
 
     return null;
