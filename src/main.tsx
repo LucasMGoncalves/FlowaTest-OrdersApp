@@ -6,13 +6,6 @@ import "./index.css";
 
 import App from "./App";
 
-if (import.meta.env.DEV && import.meta.env.VITE_DEV_JWT) {
-  localStorage.setItem(
-    "access_token",
-    import.meta.env.VITE_DEV_JWT
-  );
-}
-
 createRoot(
   document.getElementById("root")!
 ).render(
